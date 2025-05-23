@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamolov Presents</title>
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+    <!-- Inter (альтернатива) -->
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="20" ry="12" fill="%23232a34" stroke="%23ffd700" stroke-width="3"/><circle cx="24" cy="24" r="6" fill="%23ffd700"/><circle cx="24" cy="24" r="3" fill="%23232a34"/><ellipse cx="24" cy="24" rx="12" ry="7" fill="none" stroke="%23ffd700" stroke-width="2" opacity="0.5"/></svg>'>
 </head>
@@ -97,20 +101,27 @@
     </div>
     <header>
         <h1>Kamolov Presents</h1>
-        <!-- Вставьте в нужное место вашего index.html -->
+        <div class="header-typing">
+    <span id="typing-text"></span>
+    <span class="typing-cursor">|</span>
+    </div>
+        <!-- Вставьте в нужное место вашего index.html
 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="vertical-align: middle;">
   <ellipse cx="24" cy="24" rx="20" ry="12" fill="#232a34" stroke="#ffd700" stroke-width="3"/>
   <circle cx="24" cy="24" r="6" fill="#ffd700"/>
   <circle cx="24" cy="24" r="3" fill="#232a34"/>
   <ellipse cx="24" cy="24" rx="12" ry="7" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.5"/>
-</svg>
+</svg> -->
         <nav class="main-nav">
             <a href="#about">Обо мне</a>
             <a href="#skills">Навыки</a>
             <a href="#projects">Проекты</a>
             <a href="#contact">Контакты</a>
         </nav>
+        <button id="theme-toggle" aria-label="Сменить тему"></button>
     </header>
+
+    
 
     <div class="about-main">
         <section id="about">
@@ -121,7 +132,7 @@
                     <br><br>
                     Я подхожу к работе серьёзно, всегда стремлюсь к аккуратному результату и готов развиваться под реальные задачи. Интересуюсь веб-дизайном и современными интерфейсами. Моя цель — стать востребованным специалистом, способным делать не просто сайты, а качественные цифровые продукты.
                     <br><br>
-                    <span class="skills-title">📌 Навыки:</span><br>
+                    <span class="skills-title">📌 Навыки:</span><br><br>
                     <span class="skills-list">HTML5, CSS3, JS</span><br>
                     <span class="skills-list">Адаптивная и семантическая верстка</span><br>
                     <span class="skills-list">JavaScript (DOM, события, логика)</span><br>
@@ -132,10 +143,10 @@
         </section>
         <div class="about-slider-wrapper">
             <div class="slider">
-                <button class="slider-btn left" onclick="prevSlide()">&#8592;</button>
-                <img id="slider-img" src="https://placehold.co/500x500?text=1" alt="slide" />
-                <button class="slider-btn right" onclick="nextSlide()">&#8594;</button>
-            </div>
+    <button class="slider-btn left" onclick="prevSlide()">&#8592;</button>
+    <img id="slider-img" src="https://placehold.co/500x500?text=1" alt="slide" />
+    <button class="slider-btn right" onclick="nextSlide()">&#8594;</button>
+</div>
         </div>
     </div>
 
@@ -243,6 +254,13 @@
         <a href="#projects">Проекты</a> |
         <a href="#contact">Контакты</a>
     </nav>
+    <button id="scroll-top-btn" class="scroll-top-btn" title="Наверх">
+  <svg class="eye-svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+    <ellipse cx="19" cy="19" rx="16" ry="10" fill="#ffd700" opacity="0.8"/>
+    <circle cx="19" cy="19" r="5" fill="#232a34"/>
+    <rect class="eye-lid" x="3" y="9" width="32" height="0" fill="#ffd700" opacity="0.92" rx="10"/>
+  </svg>
+</button>
     <script src="script.js"></script>
 </body>
 </html>
