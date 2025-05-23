@@ -5,6 +5,15 @@ body {
     margin: 0;
     padding: 0;
 }
+body {
+    font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+    /* ...остальные стили... */
+}
+h1, h2, h3, .skills-category, .skills-title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
 header {
     background: #232a34;
     color: #fff;
@@ -70,25 +79,48 @@ footer nav a:hover {
     flex: 1 1 0;
 }
 .slider {
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
 }
 .slider-btn {
-    background: #ffd700;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 500px;
+    background: rgba(60, 60, 60, 0.18);
+    color: #bbb;
     border: none;
-    color: #232a34;
-    font-size: 22px;
-    padding: 8px 16px;
-    border-radius: 6px;
+    font-size: 2.5em;
     cursor: pointer;
-    margin: 5px 0;
-    transition: background 0.2s;
+    z-index: 2;
+    opacity: 0.7;
+    transition: background 0.2s, color 0.2s, opacity 0.2s;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    user-select: none;
+    /* убираем лишние паддинги */
+    padding: 0;
+}
+.slider-btn.left {
+    left: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.slider-btn.right {
+    right: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .slider-btn:hover {
-    background: #fff;
+    background: rgba(60, 60, 60, 0.35);
     color: #232a34;
+    opacity: 1;
 }
 #slider-img {
     width: 500px;
@@ -96,6 +128,8 @@ footer nav a:hover {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 2px 8px;
+    transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+    display: block;
 }
 .about-slider-wrapper {
     display: inline-block;
@@ -139,6 +173,32 @@ footer nav a:hover {
 p {
     font-size: 1em;
     color: #e0e0e0;
+}
+.header-typing {
+    color: #ffd700;
+    font-size: 1.35em;
+    font-weight: 600;
+    text-align: center;
+    min-height: 2em;
+    letter-spacing: 0.5px;
+    margin: 12px 0 0 0;
+    height: 2.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.typing-cursor {
+    display: inline-block;
+    width: 1ch;
+    animation: blink-cursor 0.8s steps(1) infinite;
+    color: #ffd700;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 @media (max-width: 600px) {
     section {
@@ -339,8 +399,8 @@ html {
 .skills-icon-htmlcss-inline {
     position: absolute;
     left: 0;
-    top: -70px;
-    font-size: 110px;
+    top: -100px;
+    font-size: 100px;
     color: #ffd70033;
     font-weight: bold;
     user-select: none;
@@ -356,7 +416,7 @@ html {
 .skills-icon-uiux {
     left: 670px;
     top: 340px;
-    font-size: 120px;
+    font-size: 110px;
     letter-spacing: 10px;
 }
 .skills-icon-js {
@@ -433,7 +493,7 @@ html {
 .skills-icon-js-inline {
     position: absolute;
     left: 750px;   /* подберите под ваш макет, это примерно правый нижний квадрат */
-    top: 720px;    /* подберите под ваш макет */
+    top: 750px;    /* подберите под ваш макет */
     font-size: 110px;
     color: #ffd70033;
     font-weight: bold;
@@ -468,20 +528,23 @@ html {
 .skills-icon,
 .skills-icon-htmlcss-inline,
 .skills-icon-uiux-inline,
-.skills-icon-js-inline,
-.skills-icon-other-inline {
+skills-icon-js-inline,
+skills-icon-other-inline {
+    pointer-events: auto;
+    line-height: 1;
+    vertical-align: middle;
     transition: 
+        color 0.3s cubic-bezier(.4,0,.2,1), 
+        text-shadow 0.4s cubic-bezier(.4,0,.2,1),
         opacity 0.7s cubic-bezier(.4,0,.2,1), 
-        transform 0.7s cubic-bezier(.4,0,.2,1),
-        color 0.3s, 
-        text-shadow 0.3s;
+        transform 0.7s cubic-bezier(.4,0,.2,1);
 }
 
 .skills-icon:hover,
 .skills-icon-htmlcss-inline:hover,
 .skills-icon-uiux-inline:hover,
-.skills-icon-js-inline:hover,
-.skills-icon-other-inline:hover {
+skills-icon-js-inline:hover,
+skills-icon-other-inline:hover {
     color: #ffd700;
     text-shadow: 0 4px 24px #ffd70088, 0 2px 12px #181c23;
     cursor: pointer;
@@ -489,8 +552,8 @@ html {
 
 .skills-icon-htmlcss-inline,
 .skills-icon-uiux-inline,
-.skills-icon-js-inline,
-.skills-icon-other-inline {
+skills-icon-js-inline,
+skills-icon-other-inline {
     position: absolute;
     /* ...остальные стили... */
     /* pointer-events: none;  <-- УДАЛИТЬ ЭТУ СТРОКУ */
@@ -575,3 +638,194 @@ html {
 .eye-center-bottom { bottom: 120px; left: 45%; width: 90px; height: 54px; transform: rotate(8deg) scale(1.2);}
 .eye-random-1      { top: 55%; left: 12%; width: 60px; height: 36px; transform: rotate(25deg) scale(0.95);}
 .eye-random-2      { top: 75%; right: 10%; width: 80px; height: 48px; transform: rotate(-22deg) scale(1.15);}
+
+/* Кнопка смены темы */
+#theme-toggle {
+    position: absolute;
+    top: 90px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    transition: color 0.2s;
+}
+#theme-toggle svg,
+#theme-toggle .icon {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#theme-toggle .icon {
+    pointer-events: none;
+}
+
+/* Светлая тема */
+body.light-theme {
+    background: #f5f5f5;
+    color: #232a34;
+}
+body.light-theme section,
+body.light-theme header,
+body.light-theme footer {
+    background: #fff;
+    color: #232a34;
+    box-shadow: 0 2px 8px rgba(180,180,180,0.15);
+}
+body.light-theme .skills-icon,
+body.light-theme .skills-icon-htmlcss-inline,
+body.light-theme .skills-icon-uiux-inline,
+body.light-theme .skills-icon-js-inline,
+body.light-theme .skills-icon-other-inline {
+    color: #232a3433;
+}
+body.light-theme .skills-icon:hover,
+body.light-theme .skills-icon-htmlcss-inline:hover,
+body.light-theme .skills-icon-uiux-inline:hover,
+body.light-theme .skills-icon-js-inline:hover,
+body.light-theme .skills-icon-other-inline:hover {
+    color: #232a34;
+    text-shadow: 0 4px 24px #ffd70033, 0 2px 12px #fff;
+}
+body.light-theme #theme-toggle {
+    color: #232a34;
+}
+body.light-theme .about-slider-wrapper {
+    background: #f5f5f5;
+    box-shadow: 0 2px 12px rgba(180,180,180,0.15);
+}
+
+body.light-theme .slider {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(180,180,180,0.10);
+}
+
+body.light-theme .slider-btn {
+    background: rgba(60, 60, 60, 0.18);
+    color: #fff;
+}
+body.light-theme .slider-btn:hover {
+    background: rgba(60, 60, 60, 0.35);
+    color: #fff;
+}
+
+/* Aqua/океанный стиль для светлой темы */
+body.light-theme .skills-category,
+body.light-theme .skills-title,
+body.light-theme #contact h2,
+body.light-theme .contact-list a,
+body.light-theme nav a,
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3 {    
+    /* Градиентный текст */
+    background: linear-gradient(90deg, #00eaff 0%, #0077ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Для обычных ссылок, если не нужен градиент, а только aqua: */
+body.light-theme .contact-list a,
+body.light-theme nav a {
+    background: none;
+    color: #00eaff;
+    -webkit-text-fill-color: #00eaff;
+    text-fill-color: #00eaff;
+}
+body.light-theme .contact-list a:hover,
+body.light-theme nav a:hover {
+    color: #0077ff;
+    -webkit-text-fill-color: #0077ff;
+    text-fill-color: #0077ff;
+}
+#contact {
+    margin-top: 80px;
+}
+
+.skills-icon-js,
+.skills-icon-js-inline {
+    display: inline-block;
+    height: auto;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    background: none;
+}
+
+body.light-theme .about-text,
+body.light-theme .about-text p,
+body.light-theme .skills-list {
+    color: #111 !important;
+}
+body.light-theme .skill-block li {
+    color: #111 !important;
+}
+.scroll-top-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 56px;
+    height: 56px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px #0003;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+    transition: opacity 0.3s, transform 0.3s;
+    padding: 0;
+}
+.scroll-top-btn:hover {
+    opacity: 1;
+    transform: scale(1.08);
+    background: #fffbe6;
+}
+.scroll-top-btn svg {
+    width: 38px;
+    height: 38px;
+    display: block;
+}
+.scroll-top-btn .eye-lid {
+    transition: none;
+    height: 0;
+}
+.scroll-top-btn:hover .eye-lid {
+    animation: blink-eye 0.35s cubic-bezier(.4,0,.2,1) 1;
+}
+@keyframes blink-eye {
+    0%   { height: 0; }
+    20%  { height: 20px; }
+    60%  { height: 20px; }
+    100% { height: 0; }
+}
+body.light-theme .header-typing,
+body.light-theme .header-typing .typing-cursor {
+    background: linear-gradient(90deg, #00eaff 0%, #0077ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+body,
+header,
+section,
+footer {
+    transition: background 0.6s, color 0.6s;
+}
+.header-typing,
+.main-nav a {
+    transition: color 0.6s, background 0.6s;
+}
